@@ -1,15 +1,17 @@
 ; rax strlen(rax) ? rdi
 
-global ft__strlen
+global ft_strlen
 
-ft__strlen:
+section .text
+
+ft_strlen:
 	mov rax, 0
 
 nextchar:
 	cmp byte[rdi + rax], 0
-	jz ret
+	jz end
 	inc rax
 	jmp nextchar
 
-ret:
+end:
 	ret
