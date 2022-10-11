@@ -1,8 +1,5 @@
-; rax strlen(rax) ? rdi
-
 global ft_strlen
-
-section .text
+; rax strlen(rdi)
 
 ft_strlen:
 	mov rax, 0

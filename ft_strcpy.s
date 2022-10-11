@@ -1,8 +1,5 @@
-; rax strcpy(rdi, rsi)
-
 global ft_strcpy
-
-section .text
+; rax strcpy(rdi, rsi)
 
 ft_strcpy:
 	mov rax, 0
