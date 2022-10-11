@@ -1,5 +1,6 @@
 SRCS		:= ft_strcpy.s \
-				ft_strlen.s
+				ft_strlen.s \
+				ft_strcmp.s
 
 OBJS		:= $(SRCS:.s=.o)
 NAME		:= libasm.a
@@ -10,9 +11,9 @@ $(NAME):	$(OBJS)
 			ar -rcs $(NAME) $(OBJS)
 
 %.o:		%.s
-			nasm -f elf64 $<
+			nasm -f elf64 -g $<
 
-main:
+main: all
 			gcc -Wall -Wextra -Werror -g main.c $(NAME)
 			./a.out
 			
