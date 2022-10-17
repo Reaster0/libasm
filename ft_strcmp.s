@@ -3,7 +3,9 @@ global ft_strcmp
 
 ft_strcmp:
 	mov rax, 0
-	mov rbx, 0
+	mov r8, 0
+	push r13
+	push r14
 
 loop:
 	jmp compare
@@ -11,19 +13,37 @@ loop:
 	jmp loop
 
 zero_case:
+
+
+compare:
 	cmp byte[rdi + rbx], 0
-	je less
+	je lesser
 	cmp byte[rsi + rbx], 0
 	je greater
 
-compare:
 	mov al, byte[rdi + rbx]
 	cmp al, byte[rsi + rbx]
-	jl less
+	jl lesser
 	jg greater
 	je loop
 
-less:
+rdi_zero:
+	mov r14, 0
+	cmp byte[rsi + rbx], 0
+	je rip + 2
+	ret
+	mov r14, 1
+	ret
+
+rsi_zero:
+	mov r13, 0
+	cmp byte[rsi + rbx], 0
+	je rip + 2
+	ret
+	mov r13, 1
+	ret
+
+lesser:
 	mov rax, -1
 	ret
 
