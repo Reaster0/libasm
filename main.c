@@ -27,5 +27,11 @@ int main(){
 	printf("%d\n", ft_strcmp("Hello", "Hello World!"));
 	printf("%d\n", strcmp("Hello", "Hello World!"));
 
+
+	printf("\nft_write tests:\n");
+
+	printf("%ld\n", ft_write(4, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+
 	return (0);
 }
