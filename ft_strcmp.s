@@ -2,51 +2,39 @@ global ft_strcmp
 ; rax strcpy(rdi, rsi)
 
 ft_strcmp:
-	mov rax, 0
-	mov r8, 0
-	push r13
-	push r14
+	push rbp
+	mov rbp, rsp
+
+	mov rbx, -1
+	jmp loop
+	leave
+	ret
+
 
 loop:
-	jmp compare
 	inc rbx
-	jmp loop
-
-zero_case:
-
-
-compare:
 	cmp byte[rdi + rbx], 0
-	je lesser
-	cmp byte[rsi + rbx], 0
-	je greater
-
+	je zero_case
 	mov al, byte[rdi + rbx]
 	cmp al, byte[rsi + rbx]
+	je loop
 	jl lesser
 	jg greater
-	je loop
 
-rdi_zero:
-	mov r14, 0
-	cmp byte[rsi + rbx], 0
-	je rip + 2
-	ret
-	mov r14, 1
-	ret
 
-rsi_zero:
-	mov r13, 0
+zero_case:
 	cmp byte[rsi + rbx], 0
-	je rip + 2
-	ret
-	mov r13, 1
+	jne lesser
+	mov rax, 0
+	leave
 	ret
 
 lesser:
 	mov rax, -1
+	leave
 	ret
 
 greater:
 	mov rax, 1
+	leave
 	ret

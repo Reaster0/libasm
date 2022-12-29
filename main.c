@@ -3,16 +3,29 @@
 #include <string.h>
 
 int main(){
+
+	printf("\nft_strlen tests:\n");
+
 	char *str = "Hello World!";
 	printf("%ld\n", ft_strlen(str));
 	printf("%ld\n", strlen(str));
+
+
+	printf("\nft_strcpy tests:\n");
 
 	const char *str1 = "Hello";
 	char str2[20];
 	printf("%s\n", ft_strcpy(str2, str1));
 	printf("%s\n", str2);
 
+	printf("\nstrcmp tests:\n");
+
+	printf("%d\n", ft_strcmp("756", "656"));
+	printf("%d\n", strcmp("756", "656"));
 	printf("%d\n", ft_strcmp("Hello", "Hello"));
+	printf("%d\n", strcmp("Hello", "Hello"));
+	printf("%d\n", ft_strcmp("Hello", "Hello World!"));
+	printf("%d\n", strcmp("Hello", "Hello World!"));
 
 	return (0);
 }
