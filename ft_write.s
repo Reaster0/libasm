@@ -1,5 +1,5 @@
 global ft_write
-extern __ernno_location
+extern __errno_location
 ; rax ft_write(rdi, rsi, rdx)
 ; ssize_t write(int fd, const void *buf, size_t count);
 
@@ -18,7 +18,7 @@ ft_write:
 
 ft_write_error:
 	push rax
-	mov rax, __ernno_location
+	mov rax, __errno_location
 	
 
 
