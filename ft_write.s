@@ -18,13 +18,10 @@ ft_write:
 
 ft_write_error:
 	push rax
-	mov rax, __errno_location
-	
-
-
-	; check the value of errno
-	; pop qword[rax]
-	; mov rax, -1
+	call [rel __errno_location wrt ..got]
+	pop qword[rax]
+	neg qword[rax]
+	mov rax, -1
 
 	leave
 	ret

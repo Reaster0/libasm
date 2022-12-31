@@ -30,7 +30,14 @@ int main(){
 
 	printf("\nft_write tests:\n");
 
-	printf("%ld\n", ft_write(4, "Hello World!\n", 13));
+	printf("%ld\n", ft_write(1, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+	printf("%ld\n", write(1, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+
+	printf("%ld\n", ft_write(-1, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+	printf("%ld\n", write(-1, "Hello World!\n", 13));
 	printf("errno: %d\n", errno);
 
 	return (0);
