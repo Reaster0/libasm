@@ -32,13 +32,41 @@ int main(){
 
 	printf("%ld\n", ft_write(1, "Hello World!\n", 13));
 	printf("errno: %d\n", errno);
+	errno = 0;
 	printf("%ld\n", write(1, "Hello World!\n", 13));
 	printf("errno: %d\n", errno);
+	errno = 0;
 
 	printf("%ld\n", ft_write(-1, "Hello World!\n", 13));
 	printf("errno: %d\n", errno);
+	errno = 0;
 	printf("%ld\n", write(-1, "Hello World!\n", 13));
 	printf("errno: %d\n", errno);
+	errno = 0;
+
+	printf("%ld\n", ft_write(1, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+	errno = 0;
+	printf("%ld\n", write(1, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+	errno = 0;
+
+	printf("\nft_read tests:\n");
+
+	printf("%ld\n", ft_read(-1, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+	errno = 0;
+	printf("%ld\n", read(-1, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+	errno = 0;
+
+	printf("%ld\n", ft_read(0, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+	errno = 0;
+	printf("%ld\n", read(0, "Hello World!\n", 13));
+	printf("errno: %d\n", errno);
+	errno = 0;
+
 
 	return (0);
 }
